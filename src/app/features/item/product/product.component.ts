@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 import { Category } from 'src/app/core/models/Category';
 import { CategoriesService } from 'src/app/core/services/categories.service';
 import { Product } from 'src/app/core/models/Product';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +18,8 @@ export class ProductComponent implements OnInit {
   public products: Product[];
 
   constructor(private route: ActivatedRoute,
-    private prdService: ProductService) {
+    private prdService: ProductService,
+    private cartSer: CartService) {
 
     route.params.subscribe(val => {
       this.category.id = val.id;
@@ -25,10 +27,10 @@ export class ProductComponent implements OnInit {
       this.getProducts(this.category);
 
     });
-    
+
   }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
 
   }
 
@@ -37,9 +39,9 @@ export class ProductComponent implements OnInit {
     this.prdService.getProductsByCategory(selCategory.id)
       .subscribe(data => {
         console.log("HTTP Data " + data[0].name);
-        this.products =[...data];       
+        this.products = [...data];
       });
-
+    this.cartSer.updateCart( this.category.id);
 
   }
 
