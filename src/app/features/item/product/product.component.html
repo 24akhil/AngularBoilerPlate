@@ -1,0 +1,14 @@
+<div class="padding-top: 500px">
+<h6>Product : {{category.name}} !   </h6>
+<!-- <button (click)="getProducts(category)">Get Products</button> -->
+
+<div *ngFor="let product of products">
+    
+    <h5>{{product.name}}</h5>
+    {{product.image}}<br>
+    Rate: {{product.rate|currency:'INR'}}
+    <br><br>
+    </div>
+    <!-- <span>{{product.name}}</span>
+    <span>{{product.rate}}</span> -->
+</div>

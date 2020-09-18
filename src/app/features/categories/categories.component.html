@@ -1,0 +1,13 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">All Categories</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <!-- <td routerLink="[/product, category.id]" routerLinkActive="active-link">{{category.name}}</td> -->
+      <td (click)="onSelect(category)">{{category.name}}</td>
+    </tr>
+  </tbody>
+</table>
