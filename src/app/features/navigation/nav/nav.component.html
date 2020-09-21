@@ -1,6 +1,14 @@
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">My Cart</a>
     <span class="form-inline">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manage Orders
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Check Out</a>         
+        </div>
+      </div>
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <!-- <i class="fa fa-american-sign-language-interpreting fa-5x" aria-hidden="true"> </i> -->
      <app-cart></app-cart>

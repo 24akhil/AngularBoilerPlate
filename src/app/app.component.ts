@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Key } from 'protractor';
 import { map } from 'rxjs/operators';
+import { LoadingService } from './shared/loading/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   title = 'MyMart';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private load: LoadingService) { }
 
   ngOnInit() {
 
@@ -24,9 +26,12 @@ export class AppComponent implements OnInit {
     //   .subscribe(resData => {
     //     console.log(resData);
     //   });
+    // this.load.showLoader(true);
+    // setTimeout(() => {
+    //   this.load.showLoader(false);
 
+    // }, 5000);
 
-   
   };
 
 }

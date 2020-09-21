@@ -7,6 +7,9 @@
     <h5>{{product.name}}</h5>
     {{product.image}}<br>
     Rate: {{product.rate|currency:'INR'}}
+    <br>
+    
+    <app-edit-cart [product]="product"></app-edit-cart>
     <br><br>
     </div>
     <!-- <span>{{product.name}}</span>

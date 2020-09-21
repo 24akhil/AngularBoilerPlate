@@ -11,19 +11,23 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NavigationModule } from './features/navigation/navigation.module';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CategoriesComponent } from './features/categories/categories.component';
 import { ItemModule } from './features/item/item.module';
 import { PagenotfoundComponent } from './features/pagenotfound/pagenotfound.component';
 import { CartComponent } from './shared/cart/cart.component';
 import { EditCartComponent } from './shared/edit-cart/edit-cart.component';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { HttpServiceInterceptor } from './core/services/http-service.interceptor';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
     PagenotfoundComponent,
-    EditCartComponent,
+    LoadingComponent
+    //EditCartComponent
     //CartComponent,
     
   ],
@@ -35,10 +39,20 @@ import { EditCartComponent } from './shared/edit-cart/edit-cart.component';
     NavigationModule,
     HttpClientModule,
     ItemModule,
-    AlertModule.forRoot()
+    // MatProgressSpinnerModule,
+    AlertModule.forRoot(),
+    
+    
     
   ],
-  providers: [],
+  providers: [
+    HttpServiceInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpServiceInterceptor,
+      multi: true,
+    }
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

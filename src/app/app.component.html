@@ -2,6 +2,7 @@
 
 <alert type="warning">hello</alert> -->
 <div class="container-fluid">
+
     <div class="row">
         <div class="col-md-12">
             <app-nav></app-nav>
@@ -22,9 +23,12 @@
                 <div class="col-md-4">
                     <app-categories></app-categories>
                 </div>
-                <div class="col-md-8 padding-top: 500px" >                    
+                <div class="col-md-8 padding-top: 500px">
                     <!-- <app-product></app-product> -->
+                    <app-loading></app-loading>
+
                     <router-outlet></router-outlet>
+
                 </div>
             </div>
         </div>

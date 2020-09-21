@@ -38,10 +38,10 @@ export class ProductComponent implements OnInit {
     //var category;
     this.prdService.getProductsByCategory(selCategory.id)
       .subscribe(data => {
-        console.log("HTTP Data " + data[0].name);
+        //console.log("HTTP Data " + data[0].name);
         this.products = [...data];
       });
-    this.cartSer.updateCart( this.category.id);
+    //this.cartSer.updateCart( this.products.find(val=>val.id=2));
 
   }
 

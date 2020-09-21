@@ -8,11 +8,11 @@ import { CartService } from 'src/app/core/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public count: string;
+  public count: number;
   constructor(private cartSer: CartService) {
 
     cartSer.getCartCount().subscribe(data => {
-      this.count = data;
+      this.count = data.length;
     });
   }
 
